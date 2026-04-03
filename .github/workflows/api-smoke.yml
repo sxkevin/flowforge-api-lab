@@ -1,0 +1,15 @@
+name: API Smoke
+
+on:
+  workflow_dispatch:
+
+jobs:
+  trigger-api-suite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger suite
+        run: |
+          curl -X POST http://your-host/api/ci/trigger \
+            -H "content-type: application/json" \
+            -H "x-ci-token: local-ci-token" \
+            -d '{"suiteId":"suite_order_flow","environmentId":"env_local_demo"}'

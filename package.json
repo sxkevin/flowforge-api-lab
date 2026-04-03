@@ -1,0 +1,15 @@
+{
+  "name": "flowforge-api-lab",
+  "version": "0.1.0",
+  "description": "API automation testing platform MVP",
+  "type": "module",
+  "scripts": {
+    "setup": "bash scripts/bootstrap.sh --install-only",
+    "bootstrap": "bash scripts/bootstrap.sh",
+    "start": "node scripts/start-platform.js",
+    "start:clean": "node scripts/start-platform.js",
+    "start:server": "node src/server.js",
+    "start:runner": "python3 runner/server.py",
+    "dev": "node --watch src/server.js"
+  }
+}

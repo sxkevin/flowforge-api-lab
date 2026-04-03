@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Python cache
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Runtime files
+data/runtime.json
+
+# SQLite runtime data
+data/app.db
+data/app.db-shm
+data/app.db-wal
+
+# Backup data generated locally
+data/backup-*/
+
+# Environment files
+.env
+.env.*
+!.env.example

@@ -1,0 +1,4263 @@
+{
+  "settings": {
+    "appName": "FlowForge API Lab",
+    "ciToken": "local-ci-token",
+    "currentUser": "系统"
+  },
+  "users": [
+    {
+      "id": "user_admin",
+      "name": "平台管理员",
+      "username": "admin",
+      "password": "admin123",
+      "authToken": "token_admin_flowforge",
+      "role": "admin",
+      "status": "active",
+      "creator": "系统",
+      "createdAt": "2026-03-17T08:13:08.569Z"
+    },
+    {
+      "id": "user_editor",
+      "name": "测试开发",
+      "username": "editor",
+      "password": "editor123",
+      "authToken": "token_editor_flowforge",
+      "role": "editor",
+      "status": "active",
+      "creator": "系统",
+      "createdAt": "2026-03-17T08:13:09.569Z"
+    },
+    {
+      "id": "user_viewer",
+      "name": "业务只读",
+      "username": "viewer",
+      "password": "viewer123",
+      "authToken": "token_viewer_flowforge",
+      "role": "viewer",
+      "status": "active",
+      "creator": "系统",
+      "createdAt": "2026-03-17T08:13:10.569Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": "project_platform",
+      "name": "自动化测试平台",
+      "description": "平台自身后端接口管理与接口测试资产。",
+      "createdAt": "2026-03-17T08:13:12.569Z",
+      "updatedAt": "2026-03-17T08:13:12.569Z"
+    }
+  ],
+  "services": [
+    {
+      "id": "service_backend",
+      "projectId": "project_platform",
+      "name": "platform-backend",
+      "description": "自动化测试平台后端服务。",
+      "createdAt": "2026-03-17T08:13:13.569Z",
+      "updatedAt": "2026-03-17T08:13:13.569Z"
+    }
+  ],
+  "modules": [
+    {
+      "id": "module_core_api",
+      "serviceId": "service_backend",
+      "name": "core-api",
+      "description": "登录、概览、调度、报告、执行等核心接口。",
+      "createdAt": "2026-03-17T08:13:14.569Z",
+      "updatedAt": "2026-03-17T08:13:14.569Z"
+    },
+    {
+      "id": "module_assets_api",
+      "serviceId": "service_backend",
+      "name": "assets-api",
+      "description": "平台资产管理、集合读写和 OpenAPI 导入接口。",
+      "createdAt": "2026-03-17T08:13:15.569Z",
+      "updatedAt": "2026-03-17T08:13:15.569Z"
+    },
+    {
+      "id": "module_runtime_api",
+      "serviceId": "service_backend",
+      "name": "runtime-api",
+      "description": "平台运行、治理、调度、执行与系统操作接口。",
+      "createdAt": "2026-03-17T08:13:16.569Z",
+      "updatedAt": "2026-03-17T08:13:16.569Z"
+    }
+  ],
+  "apis": [
+    {
+      "id": "api_auth_login",
+      "moduleId": "module_core_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "账号登录",
+      "method": "POST",
+      "path": "/api/auth/login",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "username": "admin",
+        "password": "admin123"
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "auth",
+        "core"
+      ],
+      "createdAt": "2026-03-17T08:13:21.569Z",
+      "updatedAt": "2026-03-17T08:13:21.569Z"
+    },
+    {
+      "id": "api_auth_me",
+      "moduleId": "module_core_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "当前登录用户",
+      "method": "GET",
+      "path": "/api/auth/me",
+      "headers": [
+        {
+          "key": "x-session-token",
+          "value": "{{vars.sessionToken}}"
+        }
+      ],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "auth",
+        "core"
+      ],
+      "createdAt": "2026-03-17T08:13:22.569Z",
+      "updatedAt": "2026-03-17T08:13:22.569Z"
+    },
+    {
+      "id": "api_bootstrap",
+      "moduleId": "module_core_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "平台引导数据",
+      "method": "GET",
+      "path": "/api/bootstrap",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "bootstrap",
+        "core"
+      ],
+      "createdAt": "2026-03-17T08:13:23.569Z",
+      "updatedAt": "2026-03-17T08:13:23.569Z"
+    },
+    {
+      "id": "api_overview",
+      "moduleId": "module_core_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "工作台总览",
+      "method": "GET",
+      "path": "/api/overview",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "overview",
+        "core"
+      ],
+      "createdAt": "2026-03-17T08:13:24.569Z",
+      "updatedAt": "2026-03-17T08:13:24.569Z"
+    },
+    {
+      "id": "api_globals",
+      "moduleId": "module_core_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "全局变量列表",
+      "method": "GET",
+      "path": "/api/globals",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "variables"
+      ],
+      "createdAt": "2026-03-17T08:13:25.569Z",
+      "updatedAt": "2026-03-17T08:13:25.569Z"
+    },
+    {
+      "id": "api_scheduler_center",
+      "moduleId": "module_core_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "定时调度中心",
+      "method": "GET",
+      "path": "/api/scheduler",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "scheduler",
+        "core"
+      ],
+      "createdAt": "2026-03-17T08:13:26.569Z",
+      "updatedAt": "2026-03-17T08:13:26.569Z"
+    },
+    {
+      "id": "api_report_summary",
+      "moduleId": "module_core_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "报告汇总",
+      "method": "GET",
+      "path": "/api/reports/summary",
+      "headers": [],
+      "query": [
+        {
+          "key": "range",
+          "value": "7d"
+        },
+        {
+          "key": "moduleId",
+          "value": "all"
+        }
+      ],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "reports",
+        "core"
+      ],
+      "createdAt": "2026-03-17T08:13:27.569Z",
+      "updatedAt": "2026-03-17T08:13:27.569Z"
+    },
+    {
+      "id": "api_report_insights",
+      "moduleId": "module_core_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "报告洞察",
+      "method": "GET",
+      "path": "/api/reports/insights",
+      "headers": [],
+      "query": [
+        {
+          "key": "range",
+          "value": "7d"
+        },
+        {
+          "key": "moduleId",
+          "value": "all"
+        }
+      ],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "reports"
+      ],
+      "createdAt": "2026-03-17T08:13:28.569Z",
+      "updatedAt": "2026-03-17T08:13:28.569Z"
+    },
+    {
+      "id": "api_runs_list",
+      "moduleId": "module_core_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "执行记录列表",
+      "method": "GET",
+      "path": "/api/runs",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "execution"
+      ],
+      "createdAt": "2026-03-17T08:13:29.569Z",
+      "updatedAt": "2026-03-17T08:13:29.569Z"
+    },
+    {
+      "id": "api_governance_summary",
+      "moduleId": "module_core_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "治理概览",
+      "method": "GET",
+      "path": "/api/governance/summary",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "governance"
+      ],
+      "createdAt": "2026-03-17T08:13:30.569Z",
+      "updatedAt": "2026-03-17T08:13:30.569Z"
+    },
+    {
+      "id": "api_users_list",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "用户列表",
+      "method": "GET",
+      "path": "/api/users",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "users"
+      ],
+      "createdAt": "2026-03-17T08:16:31.569Z",
+      "updatedAt": "2026-03-17T08:16:31.569Z"
+    },
+    {
+      "id": "api_users_detail",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "用户详情",
+      "method": "GET",
+      "path": "/api/users/{{env.variables.platformUserId}}",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "users",
+        "template"
+      ],
+      "createdAt": "2026-03-17T08:16:32.569Z",
+      "updatedAt": "2026-03-17T08:16:32.569Z"
+    },
+    {
+      "id": "api_users_create",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "创建用户",
+      "method": "POST",
+      "path": "/api/users",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "id": "user_{{random}}",
+        "name": "平台模板用户{{random}}",
+        "username": "tpl_{{random}}",
+        "password": "temp1234",
+        "role": "viewer",
+        "status": "active"
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "users",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:16:33.569Z",
+      "updatedAt": "2026-03-17T08:16:33.569Z"
+    },
+    {
+      "id": "api_users_update",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "更新用户",
+      "method": "PUT",
+      "path": "/api/users/{{env.variables.platformUserId}}",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "name": "平台管理员",
+        "username": "admin",
+        "password": "admin123",
+        "role": "admin",
+        "status": "active"
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "users",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:16:34.569Z",
+      "updatedAt": "2026-03-17T08:16:34.569Z"
+    },
+    {
+      "id": "api_projects_list",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "项目列表",
+      "method": "GET",
+      "path": "/api/projects",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "projects"
+      ],
+      "createdAt": "2026-03-17T08:16:39.569Z",
+      "updatedAt": "2026-03-17T08:16:39.569Z"
+    },
+    {
+      "id": "api_projects_detail",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "项目详情",
+      "method": "GET",
+      "path": "/api/projects/{{env.variables.platformProjectId}}",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "projects",
+        "template"
+      ],
+      "createdAt": "2026-03-17T08:16:40.569Z",
+      "updatedAt": "2026-03-17T08:16:40.569Z"
+    },
+    {
+      "id": "api_projects_create",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "创建项目",
+      "method": "POST",
+      "path": "/api/projects",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "id": "project_{{random}}",
+        "name": "平台模板项目{{random}}",
+        "description": "系统内置项目创建模板。"
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "projects",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:16:41.569Z",
+      "updatedAt": "2026-03-17T08:16:41.569Z"
+    },
+    {
+      "id": "api_projects_update",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "更新项目",
+      "method": "PUT",
+      "path": "/api/projects/{{env.variables.platformProjectId}}",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "name": "自动化测试平台",
+        "description": "平台自身后端接口管理与接口测试资产。"
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "projects",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:16:42.569Z",
+      "updatedAt": "2026-03-17T08:16:42.569Z"
+    },
+    {
+      "id": "api_services_list",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "服务列表",
+      "method": "GET",
+      "path": "/api/services",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "services"
+      ],
+      "createdAt": "2026-03-17T08:16:47.569Z",
+      "updatedAt": "2026-03-17T08:16:47.569Z"
+    },
+    {
+      "id": "api_services_detail",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "服务详情",
+      "method": "GET",
+      "path": "/api/services/{{env.variables.platformServiceId}}",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "services",
+        "template"
+      ],
+      "createdAt": "2026-03-17T08:16:48.569Z",
+      "updatedAt": "2026-03-17T08:16:48.569Z"
+    },
+    {
+      "id": "api_services_create",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "创建服务",
+      "method": "POST",
+      "path": "/api/services",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "id": "service_{{random}}",
+        "projectId": "{{env.variables.platformProjectId}}",
+        "name": "platform-service-{{random}}",
+        "description": "系统内置服务创建模板。"
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "services",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:16:49.569Z",
+      "updatedAt": "2026-03-17T08:16:49.569Z"
+    },
+    {
+      "id": "api_services_update",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "更新服务",
+      "method": "PUT",
+      "path": "/api/services/{{env.variables.platformServiceId}}",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "projectId": "{{env.variables.platformProjectId}}",
+        "name": "platform-backend",
+        "description": "自动化测试平台后端服务。"
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "services",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:16:50.569Z",
+      "updatedAt": "2026-03-17T08:16:50.569Z"
+    },
+    {
+      "id": "api_modules_list",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "模块列表",
+      "method": "GET",
+      "path": "/api/modules",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "modules"
+      ],
+      "createdAt": "2026-03-17T08:16:55.569Z",
+      "updatedAt": "2026-03-17T08:16:55.569Z"
+    },
+    {
+      "id": "api_modules_detail",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "模块详情",
+      "method": "GET",
+      "path": "/api/modules/{{env.variables.platformModuleId}}",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "modules",
+        "template"
+      ],
+      "createdAt": "2026-03-17T08:16:56.569Z",
+      "updatedAt": "2026-03-17T08:16:56.569Z"
+    },
+    {
+      "id": "api_modules_create",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "创建模块",
+      "method": "POST",
+      "path": "/api/modules",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "id": "module_{{random}}",
+        "serviceId": "{{env.variables.platformServiceId}}",
+        "name": "platform-module-{{random}}",
+        "description": "系统内置模块创建模板。"
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "modules",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:16:57.569Z",
+      "updatedAt": "2026-03-17T08:16:57.569Z"
+    },
+    {
+      "id": "api_modules_update",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "更新模块",
+      "method": "PUT",
+      "path": "/api/modules/{{env.variables.platformModuleId}}",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "serviceId": "{{env.variables.platformServiceId}}",
+        "name": "core-api",
+        "description": "登录、概览、调度、报告、执行等核心接口。"
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "modules",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:16:58.569Z",
+      "updatedAt": "2026-03-17T08:16:58.569Z"
+    },
+    {
+      "id": "api_apis_list",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "接口列表",
+      "method": "GET",
+      "path": "/api/apis",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "apis"
+      ],
+      "createdAt": "2026-03-17T08:17:03.569Z",
+      "updatedAt": "2026-03-17T08:17:03.569Z"
+    },
+    {
+      "id": "api_apis_detail",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "接口详情",
+      "method": "GET",
+      "path": "/api/apis/{{env.variables.platformApiId}}",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "apis",
+        "template"
+      ],
+      "createdAt": "2026-03-17T08:17:04.569Z",
+      "updatedAt": "2026-03-17T08:17:04.569Z"
+    },
+    {
+      "id": "api_apis_create",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "创建接口",
+      "method": "POST",
+      "path": "/api/apis",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "id": "api_{{random}}",
+        "moduleId": "{{env.variables.platformAssetsModuleId}}",
+        "name": "平台模板接口{{random}}",
+        "method": "GET",
+        "path": "/api/bootstrap",
+        "headers": [],
+        "query": [],
+        "bodyMode": "none",
+        "bodyTemplate": "",
+        "tags": [
+          "platform",
+          "template"
+        ]
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "apis",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:17:05.569Z",
+      "updatedAt": "2026-03-17T08:17:05.569Z"
+    },
+    {
+      "id": "api_apis_update",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "更新接口",
+      "method": "PUT",
+      "path": "/api/apis/{{env.variables.platformApiId}}",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "moduleId": "{{env.variables.platformModuleId}}",
+        "name": "账号登录",
+        "method": "POST",
+        "path": "/api/auth/login",
+        "headers": [
+          {
+            "key": "content-type",
+            "value": "application/json"
+          }
+        ],
+        "query": [],
+        "bodyMode": "json",
+        "bodyTemplate": {
+          "username": "admin",
+          "password": "admin123"
+        },
+        "tags": [
+          "platform",
+          "auth",
+          "core"
+        ]
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "apis",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:17:06.569Z",
+      "updatedAt": "2026-03-17T08:17:06.569Z"
+    },
+    {
+      "id": "api_cases_list",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "用例列表",
+      "method": "GET",
+      "path": "/api/cases",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "cases"
+      ],
+      "createdAt": "2026-03-17T08:17:11.569Z",
+      "updatedAt": "2026-03-17T08:17:11.569Z"
+    },
+    {
+      "id": "api_cases_detail",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "用例详情",
+      "method": "GET",
+      "path": "/api/cases/{{env.variables.platformCaseId}}",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "cases",
+        "template"
+      ],
+      "createdAt": "2026-03-17T08:17:12.569Z",
+      "updatedAt": "2026-03-17T08:17:12.569Z"
+    },
+    {
+      "id": "api_cases_create",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "创建用例",
+      "method": "POST",
+      "path": "/api/cases",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "id": "case_{{random}}",
+        "apiId": "{{env.variables.platformApiId}}",
+        "name": "平台模板用例{{random}}",
+        "description": "系统内置用例创建模板。",
+        "priority": "medium",
+        "tags": [
+          "platform",
+          "template"
+        ],
+        "assertions": [
+          {
+            "type": "status",
+            "expected": 200
+          }
+        ],
+        "extracts": [],
+        "preScript": "",
+        "postScript": "",
+        "overrides": {}
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "cases",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:17:13.569Z",
+      "updatedAt": "2026-03-17T08:17:13.569Z"
+    },
+    {
+      "id": "api_cases_update",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "更新用例",
+      "method": "PUT",
+      "path": "/api/cases/{{env.variables.platformCaseId}}",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "apiId": "{{env.variables.platformApiId}}",
+        "name": "管理员账号登录成功",
+        "description": "使用默认管理员账号登录平台。",
+        "priority": "high",
+        "tags": [
+          "platform",
+          "auth",
+          "smoke"
+        ],
+        "assertions": [
+          {
+            "type": "status",
+            "expected": 200
+          },
+          {
+            "type": "fieldType",
+            "path": "$.token",
+            "expected": "string"
+          }
+        ],
+        "extracts": [
+          {
+            "name": "sessionToken",
+            "source": "jsonPath",
+            "path": "$.token"
+          }
+        ],
+        "preScript": "",
+        "postScript": "",
+        "overrides": {}
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "cases",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:17:14.569Z",
+      "updatedAt": "2026-03-17T08:17:14.569Z"
+    },
+    {
+      "id": "api_datasets_list",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "数据集列表",
+      "method": "GET",
+      "path": "/api/datasets",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "datasets"
+      ],
+      "createdAt": "2026-03-17T08:17:19.569Z",
+      "updatedAt": "2026-03-17T08:17:19.569Z"
+    },
+    {
+      "id": "api_datasets_detail",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "数据集详情",
+      "method": "GET",
+      "path": "/api/datasets/{{env.variables.platformDatasetId}}",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "datasets",
+        "template"
+      ],
+      "createdAt": "2026-03-17T08:17:20.569Z",
+      "updatedAt": "2026-03-17T08:17:20.569Z"
+    },
+    {
+      "id": "api_datasets_create",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "创建数据集",
+      "method": "POST",
+      "path": "/api/datasets",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "id": "dataset_{{random}}",
+        "name": "平台模板数据集{{random}}",
+        "description": "系统内置数据集创建模板。",
+        "scope": "suite",
+        "tags": [
+          "platform",
+          "template"
+        ],
+        "rows": [
+          {
+            "id": "row_1",
+            "name": "默认数据行",
+            "variables": {
+              "sample": "value"
+            }
+          }
+        ]
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "datasets",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:17:21.569Z",
+      "updatedAt": "2026-03-17T08:17:21.569Z"
+    },
+    {
+      "id": "api_datasets_update",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "更新数据集",
+      "method": "PUT",
+      "path": "/api/datasets/{{env.variables.platformDatasetId}}",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "name": "平台内置样例数据集",
+        "description": "用于平台自身接口模板测试。",
+        "scope": "suite",
+        "tags": [
+          "platform",
+          "template"
+        ],
+        "rows": [
+          {
+            "id": "row_1",
+            "name": "默认数据行",
+            "variables": {
+              "sample": "value"
+            }
+          }
+        ]
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "datasets",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:17:22.569Z",
+      "updatedAt": "2026-03-17T08:17:22.569Z"
+    },
+    {
+      "id": "api_environments_list",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "环境列表",
+      "method": "GET",
+      "path": "/api/environments",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "environments"
+      ],
+      "createdAt": "2026-03-17T08:17:27.569Z",
+      "updatedAt": "2026-03-17T08:17:27.569Z"
+    },
+    {
+      "id": "api_environments_detail",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "环境详情",
+      "method": "GET",
+      "path": "/api/environments/{{env.variables.platformEnvironmentId}}",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "environments",
+        "template"
+      ],
+      "createdAt": "2026-03-17T08:17:28.569Z",
+      "updatedAt": "2026-03-17T08:17:28.569Z"
+    },
+    {
+      "id": "api_environments_create",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "创建环境",
+      "method": "POST",
+      "path": "/api/environments",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "id": "env_{{random}}",
+        "name": "平台模板环境{{random}}",
+        "description": "系统内置环境创建模板。",
+        "baseUrl": "{{env.variables.platformBaseUrl}}",
+        "headers": {},
+        "variables": {},
+        "auth": {
+          "type": "apikey",
+          "header": "x-session-token",
+          "value": "token_admin_flowforge"
+        }
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "environments",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:17:29.569Z",
+      "updatedAt": "2026-03-17T08:17:29.569Z"
+    },
+    {
+      "id": "api_environments_update",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "更新环境",
+      "method": "PUT",
+      "path": "/api/environments/{{env.variables.platformEnvironmentId}}",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "name": "平台本地环境",
+        "description": "指向当前自动化测试平台后端服务。",
+        "baseUrl": "{{env.variables.platformBaseUrl}}",
+        "headers": {},
+        "variables": {},
+        "auth": {
+          "type": "apikey",
+          "header": "x-session-token",
+          "value": "token_admin_flowforge"
+        }
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "environments",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:17:30.569Z",
+      "updatedAt": "2026-03-17T08:17:30.569Z"
+    },
+    {
+      "id": "api_suites_list",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "场景列表",
+      "method": "GET",
+      "path": "/api/suites",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "suites"
+      ],
+      "createdAt": "2026-03-17T08:17:35.569Z",
+      "updatedAt": "2026-03-17T08:17:35.569Z"
+    },
+    {
+      "id": "api_suites_detail",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "场景详情",
+      "method": "GET",
+      "path": "/api/suites/{{env.variables.platformSuiteId}}",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "suites",
+        "template"
+      ],
+      "createdAt": "2026-03-17T08:17:36.569Z",
+      "updatedAt": "2026-03-17T08:17:36.569Z"
+    },
+    {
+      "id": "api_suites_create",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "创建场景",
+      "method": "POST",
+      "path": "/api/suites",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "id": "suite_{{random}}",
+        "projectId": "{{env.variables.platformProjectId}}",
+        "name": "平台模板场景{{random}}",
+        "description": "系统内置场景创建模板。",
+        "defaultEnvironmentId": "{{env.variables.platformEnvironmentId}}",
+        "failureStrategy": "stop",
+        "timeoutSeconds": 300,
+        "continueOnFailure": false,
+        "variables": {},
+        "executionConfig": {
+          "priority": "normal",
+          "maxRetries": 0,
+          "stopOnDatasetFailure": true
+        },
+        "items": [
+          {
+            "id": "suite_item_1",
+            "caseId": "{{env.variables.platformCaseId}}",
+            "order": 1,
+            "continueOnFailure": false
+          }
+        ],
+        "scenarioAssertions": [],
+        "schedule": {
+          "enabled": false,
+          "intervalMinutes": 30
+        },
+        "tags": [
+          "platform",
+          "template"
+        ]
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "suites",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:17:37.569Z",
+      "updatedAt": "2026-03-17T08:17:37.569Z"
+    },
+    {
+      "id": "api_suites_update",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "更新场景",
+      "method": "PUT",
+      "path": "/api/suites/{{env.variables.platformSuiteId}}",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "projectId": "{{env.variables.platformProjectId}}",
+        "name": "平台核心接口冒烟",
+        "description": "串联登录、身份校验、引导、总览、变量、调度与报告接口。",
+        "defaultEnvironmentId": "{{env.variables.platformEnvironmentId}}",
+        "failureStrategy": "stop",
+        "timeoutSeconds": 300,
+        "continueOnFailure": false,
+        "variables": {},
+        "executionConfig": {
+          "priority": "normal",
+          "maxRetries": 0,
+          "stopOnDatasetFailure": true
+        },
+        "items": [
+          {
+            "id": "suite_item_template",
+            "caseId": "{{env.variables.platformCaseId}}",
+            "order": 1,
+            "continueOnFailure": false
+          }
+        ],
+        "scenarioAssertions": [],
+        "schedule": {
+          "enabled": false,
+          "intervalMinutes": 30
+        },
+        "tags": [
+          "platform",
+          "smoke",
+          "core"
+        ]
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "suites",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:17:38.569Z",
+      "updatedAt": "2026-03-17T08:17:38.569Z"
+    },
+    {
+      "id": "api_auth_logout",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "账号登出",
+      "method": "POST",
+      "path": "/api/auth/logout",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "auth",
+        "session"
+      ],
+      "createdAt": "2026-03-17T08:21:31.569Z",
+      "updatedAt": "2026-03-17T08:21:31.569Z"
+    },
+    {
+      "id": "api_auth_change_password",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "修改当前密码",
+      "method": "POST",
+      "path": "/api/auth/change-password",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "currentPassword": "wrong-password",
+        "nextPassword": "newpass123"
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "auth",
+        "template"
+      ],
+      "createdAt": "2026-03-17T08:21:32.569Z",
+      "updatedAt": "2026-03-17T08:21:32.569Z"
+    },
+    {
+      "id": "api_admin_seed",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "补充平台样例数据",
+      "method": "POST",
+      "path": "/api/admin/seed",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {},
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "admin",
+        "seed"
+      ],
+      "createdAt": "2026-03-17T08:21:33.569Z",
+      "updatedAt": "2026-03-17T08:21:33.569Z"
+    },
+    {
+      "id": "api_versions_list",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "版本列表",
+      "method": "GET",
+      "path": "/api/versions",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "governance",
+        "versions"
+      ],
+      "createdAt": "2026-03-17T08:21:34.569Z",
+      "updatedAt": "2026-03-17T08:21:34.569Z"
+    },
+    {
+      "id": "api_version_impact",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "版本影响分析",
+      "method": "GET",
+      "path": "/api/versions/{{env.variables.platformVersionId}}/impact",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "governance",
+        "versions",
+        "template"
+      ],
+      "createdAt": "2026-03-17T08:21:35.569Z",
+      "updatedAt": "2026-03-17T08:21:35.569Z"
+    },
+    {
+      "id": "api_version_restore",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "恢复指定版本",
+      "method": "POST",
+      "path": "/api/versions/{{env.variables.platformVersionId}}/restore",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "governance",
+        "versions",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:21:36.569Z",
+      "updatedAt": "2026-03-17T08:21:36.569Z"
+    },
+    {
+      "id": "api_audit_logs",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "审计日志列表",
+      "method": "GET",
+      "path": "/api/audit-logs",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "governance",
+        "audit"
+      ],
+      "createdAt": "2026-03-17T08:21:37.569Z",
+      "updatedAt": "2026-03-17T08:21:37.569Z"
+    },
+    {
+      "id": "api_audit_logs_export",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "导出审计日志",
+      "method": "GET",
+      "path": "/api/audit-logs/export",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "governance",
+        "audit"
+      ],
+      "createdAt": "2026-03-17T08:21:38.569Z",
+      "updatedAt": "2026-03-17T08:21:38.569Z"
+    },
+    {
+      "id": "api_scheduler_refresh",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "刷新调度中心",
+      "method": "POST",
+      "path": "/api/scheduler/refresh",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "scheduler",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:21:39.569Z",
+      "updatedAt": "2026-03-17T08:21:39.569Z"
+    },
+    {
+      "id": "api_runs_trigger",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "触发场景执行",
+      "method": "POST",
+      "path": "/api/runs",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "suiteId": "{{env.variables.platformSuiteId}}",
+        "environmentId": "{{env.variables.platformEnvironmentId}}"
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "execution",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:21:40.569Z",
+      "updatedAt": "2026-03-17T08:21:40.569Z"
+    },
+    {
+      "id": "api_runs_batch_cases",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "批量执行用例",
+      "method": "POST",
+      "path": "/api/runs/batch-cases",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "caseIds": [
+          "case_auth_login",
+          "case_auth_me"
+        ],
+        "projectId": "{{env.variables.platformProjectId}}",
+        "environmentId": "{{env.variables.platformEnvironmentId}}"
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "execution",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:21:41.569Z",
+      "updatedAt": "2026-03-17T08:21:41.569Z"
+    },
+    {
+      "id": "api_run_detail",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "执行详情",
+      "method": "GET",
+      "path": "/api/runs/{{env.variables.platformRunId}}",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "execution",
+        "template"
+      ],
+      "createdAt": "2026-03-17T08:21:42.569Z",
+      "updatedAt": "2026-03-17T08:21:42.569Z"
+    },
+    {
+      "id": "api_run_share",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "执行分享信息",
+      "method": "GET",
+      "path": "/api/runs/{{env.variables.platformRunId}}/share",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "execution",
+        "template"
+      ],
+      "createdAt": "2026-03-17T08:21:43.569Z",
+      "updatedAt": "2026-03-17T08:21:43.569Z"
+    },
+    {
+      "id": "api_run_cancel",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "取消执行",
+      "method": "POST",
+      "path": "/api/runs/{{env.variables.platformRunId}}/cancel",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "execution",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:21:44.569Z",
+      "updatedAt": "2026-03-17T08:21:44.569Z"
+    },
+    {
+      "id": "api_run_retry",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "重试执行",
+      "method": "POST",
+      "path": "/api/runs/{{env.variables.platformRunId}}/retry",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "execution",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:21:45.569Z",
+      "updatedAt": "2026-03-17T08:21:45.569Z"
+    },
+    {
+      "id": "api_run_retry_failed",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "重跑失败步骤",
+      "method": "POST",
+      "path": "/api/runs/{{env.variables.platformRunId}}/retry-failed",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "execution",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:21:46.569Z",
+      "updatedAt": "2026-03-17T08:21:46.569Z"
+    },
+    {
+      "id": "api_ci_trigger",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "CI 触发执行",
+      "method": "POST",
+      "path": "/api/ci/trigger",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        },
+        {
+          "key": "x-ci-token",
+          "value": "local-ci-token"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "suiteId": "{{env.variables.platformSuiteId}}",
+        "environmentId": "{{env.variables.platformEnvironmentId}}"
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "ci",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:21:47.569Z",
+      "updatedAt": "2026-03-17T08:21:47.569Z"
+    },
+    {
+      "id": "api_import_openapi",
+      "moduleId": "module_assets_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "导入 OpenAPI",
+      "method": "POST",
+      "path": "/api/import/openapi",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "query": [],
+      "bodyMode": "json",
+      "bodyTemplate": {
+        "moduleId": "{{env.variables.platformAssetsModuleId}}",
+        "spec": {
+          "openapi": "3.0.0",
+          "info": {
+            "title": "Platform Import Template",
+            "version": "1.0.0"
+          },
+          "paths": {
+            "/platform/template": {
+              "get": {
+                "responses": {
+                  "200": {
+                    "description": "ok",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "status": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "assets",
+        "openapi",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:21:48.569Z",
+      "updatedAt": "2026-03-17T08:21:48.569Z"
+    },
+    {
+      "id": "api_user_revoke_sessions",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "回收用户登录会话",
+      "method": "POST",
+      "path": "/api/users/{{env.variables.platformTemplateUserId}}/revoke-sessions",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "users",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:21:49.569Z",
+      "updatedAt": "2026-03-17T08:21:49.569Z"
+    },
+    {
+      "id": "api_user_reset_password",
+      "moduleId": "module_runtime_api",
+      "creator": "系统",
+      "status": "active",
+      "name": "重置用户密码",
+      "method": "POST",
+      "path": "/api/users/{{env.variables.platformTemplateUserId}}/reset-password",
+      "headers": [],
+      "query": [],
+      "bodyMode": "none",
+      "bodyTemplate": "",
+      "preSteps": [],
+      "postSteps": [],
+      "tags": [
+        "platform",
+        "users",
+        "template",
+        "write"
+      ],
+      "createdAt": "2026-03-17T08:21:50.569Z",
+      "updatedAt": "2026-03-17T08:21:50.569Z"
+    }
+  ],
+  "cases": [
+    {
+      "id": "case_auth_login",
+      "apiId": "api_auth_login",
+      "creator": "系统",
+      "priority": "high",
+      "name": "管理员账号登录成功",
+      "description": "使用默认管理员账号登录平台。",
+      "tags": [
+        "platform",
+        "auth",
+        "smoke"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.token",
+          "expected": "string"
+        },
+        {
+          "type": "jsonPath",
+          "path": "$.user.username",
+          "expected": "admin"
+        }
+      ],
+      "extracts": [
+        {
+          "name": "sessionToken",
+          "source": "jsonPath",
+          "path": "$.token"
+        }
+      ],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:13:41.569Z",
+      "updatedAt": "2026-03-17T08:13:41.569Z"
+    },
+    {
+      "id": "case_auth_me",
+      "apiId": "api_auth_me",
+      "creator": "系统",
+      "priority": "high",
+      "name": "读取当前登录用户",
+      "description": "校验登录态和当前用户结构。",
+      "tags": [
+        "platform",
+        "auth",
+        "smoke"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "jsonPath",
+          "path": "$.user.username",
+          "expected": "admin"
+        },
+        {
+          "type": "jsonPath",
+          "path": "$.user.role",
+          "expected": "admin"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:13:42.569Z",
+      "updatedAt": "2026-03-17T08:13:42.569Z"
+    },
+    {
+      "id": "case_bootstrap",
+      "apiId": "api_bootstrap",
+      "creator": "系统",
+      "priority": "high",
+      "name": "读取平台引导数据",
+      "description": "校验 bootstrap 结构和运行时元信息。",
+      "tags": [
+        "platform",
+        "bootstrap",
+        "smoke"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "jsonPath",
+          "path": "$.settings.appName",
+          "expected": "FlowForge API Lab"
+        },
+        {
+          "type": "fieldType",
+          "path": "$.projects",
+          "expected": "array"
+        },
+        {
+          "type": "fieldType",
+          "path": "$.queue",
+          "expected": "object"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:13:43.569Z",
+      "updatedAt": "2026-03-17T08:13:43.569Z"
+    },
+    {
+      "id": "case_overview",
+      "apiId": "api_overview",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取工作台总览",
+      "description": "校验趋势、最近运行和统计结构。",
+      "tags": [
+        "platform",
+        "overview"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.trend",
+          "expected": "array"
+        },
+        {
+          "type": "fieldType",
+          "path": "$.recentRuns",
+          "expected": "array"
+        },
+        {
+          "type": "fieldType",
+          "path": "$.runningCount",
+          "expected": "number"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:13:44.569Z",
+      "updatedAt": "2026-03-17T08:13:44.569Z"
+    },
+    {
+      "id": "case_globals",
+      "apiId": "api_globals",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取全局变量列表",
+      "description": "校验变量接口返回数组。",
+      "tags": [
+        "platform",
+        "variables"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:13:45.569Z",
+      "updatedAt": "2026-03-17T08:13:45.569Z"
+    },
+    {
+      "id": "case_scheduler_center",
+      "apiId": "api_scheduler_center",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取定时调度中心",
+      "description": "校验调度中心摘要和计划数组。",
+      "tags": [
+        "platform",
+        "scheduler"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.summary",
+          "expected": "object"
+        },
+        {
+          "type": "fieldType",
+          "path": "$.schedules",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:13:46.569Z",
+      "updatedAt": "2026-03-17T08:13:46.569Z"
+    },
+    {
+      "id": "case_report_summary",
+      "apiId": "api_report_summary",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取报告汇总",
+      "description": "校验报告摘要和模块统计结构。",
+      "tags": [
+        "platform",
+        "reports"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.summary",
+          "expected": "object"
+        },
+        {
+          "type": "fieldType",
+          "path": "$.moduleStats",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:13:47.569Z",
+      "updatedAt": "2026-03-17T08:13:47.569Z"
+    },
+    {
+      "id": "case_report_insights",
+      "apiId": "api_report_insights",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取报告洞察",
+      "description": "校验慢用例和失败聚类结构。",
+      "tags": [
+        "platform",
+        "reports"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.slowCases",
+          "expected": "array"
+        },
+        {
+          "type": "fieldType",
+          "path": "$.failureClusters",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:13:48.569Z",
+      "updatedAt": "2026-03-17T08:13:48.569Z"
+    },
+    {
+      "id": "case_runs_list",
+      "apiId": "api_runs_list",
+      "creator": "系统",
+      "priority": "low",
+      "name": "读取执行记录列表",
+      "description": "校验执行中心列表返回数组。",
+      "tags": [
+        "platform",
+        "execution"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:13:49.569Z",
+      "updatedAt": "2026-03-17T08:13:49.569Z"
+    },
+    {
+      "id": "case_governance_summary",
+      "apiId": "api_governance_summary",
+      "creator": "系统",
+      "priority": "low",
+      "name": "读取治理概览",
+      "description": "校验治理中心摘要结构。",
+      "tags": [
+        "platform",
+        "governance"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.users",
+          "expected": "array"
+        },
+        {
+          "type": "fieldType",
+          "path": "$.security",
+          "expected": "object"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:13:50.569Z",
+      "updatedAt": "2026-03-17T08:13:50.569Z"
+    },
+    {
+      "id": "case_users_list",
+      "apiId": "api_users_list",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取用户列表",
+      "description": "校验平台用户列表接口可访问。",
+      "tags": [
+        "platform",
+        "assets",
+        "users"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:31.569Z",
+      "updatedAt": "2026-03-17T08:18:31.569Z"
+    },
+    {
+      "id": "case_users_detail",
+      "apiId": "api_users_detail",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取用户详情",
+      "description": "校验平台用户详情接口模板。",
+      "tags": [
+        "platform",
+        "assets",
+        "users",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:32.569Z",
+      "updatedAt": "2026-03-17T08:18:32.569Z"
+    },
+    {
+      "id": "case_users_create",
+      "apiId": "api_users_create",
+      "creator": "系统",
+      "priority": "low",
+      "name": "创建用户模板",
+      "description": "创建用户模板数据，运行后会写入新记录。",
+      "tags": [
+        "platform",
+        "assets",
+        "users",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:33.569Z",
+      "updatedAt": "2026-03-17T08:18:33.569Z"
+    },
+    {
+      "id": "case_users_update",
+      "apiId": "api_users_update",
+      "creator": "系统",
+      "priority": "low",
+      "name": "更新用户模板",
+      "description": "回写平台内置用户样例数据。",
+      "tags": [
+        "platform",
+        "assets",
+        "users",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:34.569Z",
+      "updatedAt": "2026-03-17T08:18:34.569Z"
+    },
+    {
+      "id": "case_projects_list",
+      "apiId": "api_projects_list",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取项目列表",
+      "description": "校验平台项目列表接口可访问。",
+      "tags": [
+        "platform",
+        "assets",
+        "projects"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:39.569Z",
+      "updatedAt": "2026-03-17T08:18:39.569Z"
+    },
+    {
+      "id": "case_projects_detail",
+      "apiId": "api_projects_detail",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取项目详情",
+      "description": "校验平台项目详情接口模板。",
+      "tags": [
+        "platform",
+        "assets",
+        "projects",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:40.569Z",
+      "updatedAt": "2026-03-17T08:18:40.569Z"
+    },
+    {
+      "id": "case_projects_create",
+      "apiId": "api_projects_create",
+      "creator": "系统",
+      "priority": "low",
+      "name": "创建项目模板",
+      "description": "创建项目模板数据，运行后会写入新记录。",
+      "tags": [
+        "platform",
+        "assets",
+        "projects",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:41.569Z",
+      "updatedAt": "2026-03-17T08:18:41.569Z"
+    },
+    {
+      "id": "case_projects_update",
+      "apiId": "api_projects_update",
+      "creator": "系统",
+      "priority": "low",
+      "name": "更新项目模板",
+      "description": "回写平台内置项目样例数据。",
+      "tags": [
+        "platform",
+        "assets",
+        "projects",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:42.569Z",
+      "updatedAt": "2026-03-17T08:18:42.569Z"
+    },
+    {
+      "id": "case_services_list",
+      "apiId": "api_services_list",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取服务列表",
+      "description": "校验平台服务列表接口可访问。",
+      "tags": [
+        "platform",
+        "assets",
+        "services"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:47.569Z",
+      "updatedAt": "2026-03-17T08:18:47.569Z"
+    },
+    {
+      "id": "case_services_detail",
+      "apiId": "api_services_detail",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取服务详情",
+      "description": "校验平台服务详情接口模板。",
+      "tags": [
+        "platform",
+        "assets",
+        "services",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:48.569Z",
+      "updatedAt": "2026-03-17T08:18:48.569Z"
+    },
+    {
+      "id": "case_services_create",
+      "apiId": "api_services_create",
+      "creator": "系统",
+      "priority": "low",
+      "name": "创建服务模板",
+      "description": "创建服务模板数据，运行后会写入新记录。",
+      "tags": [
+        "platform",
+        "assets",
+        "services",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:49.569Z",
+      "updatedAt": "2026-03-17T08:18:49.569Z"
+    },
+    {
+      "id": "case_services_update",
+      "apiId": "api_services_update",
+      "creator": "系统",
+      "priority": "low",
+      "name": "更新服务模板",
+      "description": "回写平台内置服务样例数据。",
+      "tags": [
+        "platform",
+        "assets",
+        "services",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:50.569Z",
+      "updatedAt": "2026-03-17T08:18:50.569Z"
+    },
+    {
+      "id": "case_modules_list",
+      "apiId": "api_modules_list",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取模块列表",
+      "description": "校验平台模块列表接口可访问。",
+      "tags": [
+        "platform",
+        "assets",
+        "modules"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:55.569Z",
+      "updatedAt": "2026-03-17T08:18:55.569Z"
+    },
+    {
+      "id": "case_modules_detail",
+      "apiId": "api_modules_detail",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取模块详情",
+      "description": "校验平台模块详情接口模板。",
+      "tags": [
+        "platform",
+        "assets",
+        "modules",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:56.569Z",
+      "updatedAt": "2026-03-17T08:18:56.569Z"
+    },
+    {
+      "id": "case_modules_create",
+      "apiId": "api_modules_create",
+      "creator": "系统",
+      "priority": "low",
+      "name": "创建模块模板",
+      "description": "创建模块模板数据，运行后会写入新记录。",
+      "tags": [
+        "platform",
+        "assets",
+        "modules",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:57.569Z",
+      "updatedAt": "2026-03-17T08:18:57.569Z"
+    },
+    {
+      "id": "case_modules_update",
+      "apiId": "api_modules_update",
+      "creator": "系统",
+      "priority": "low",
+      "name": "更新模块模板",
+      "description": "回写平台内置模块样例数据。",
+      "tags": [
+        "platform",
+        "assets",
+        "modules",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:18:58.569Z",
+      "updatedAt": "2026-03-17T08:18:58.569Z"
+    },
+    {
+      "id": "case_apis_list",
+      "apiId": "api_apis_list",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取接口列表",
+      "description": "校验平台接口列表接口可访问。",
+      "tags": [
+        "platform",
+        "assets",
+        "apis"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:03.569Z",
+      "updatedAt": "2026-03-17T08:19:03.569Z"
+    },
+    {
+      "id": "case_apis_detail",
+      "apiId": "api_apis_detail",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取接口详情",
+      "description": "校验平台接口详情接口模板。",
+      "tags": [
+        "platform",
+        "assets",
+        "apis",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:04.569Z",
+      "updatedAt": "2026-03-17T08:19:04.569Z"
+    },
+    {
+      "id": "case_apis_create",
+      "apiId": "api_apis_create",
+      "creator": "系统",
+      "priority": "low",
+      "name": "创建接口模板",
+      "description": "创建接口模板数据，运行后会写入新记录。",
+      "tags": [
+        "platform",
+        "assets",
+        "apis",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:05.569Z",
+      "updatedAt": "2026-03-17T08:19:05.569Z"
+    },
+    {
+      "id": "case_apis_update",
+      "apiId": "api_apis_update",
+      "creator": "系统",
+      "priority": "low",
+      "name": "更新接口模板",
+      "description": "回写平台内置接口样例数据。",
+      "tags": [
+        "platform",
+        "assets",
+        "apis",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:06.569Z",
+      "updatedAt": "2026-03-17T08:19:06.569Z"
+    },
+    {
+      "id": "case_cases_list",
+      "apiId": "api_cases_list",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取用例列表",
+      "description": "校验平台用例列表接口可访问。",
+      "tags": [
+        "platform",
+        "assets",
+        "cases"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:11.569Z",
+      "updatedAt": "2026-03-17T08:19:11.569Z"
+    },
+    {
+      "id": "case_cases_detail",
+      "apiId": "api_cases_detail",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取用例详情",
+      "description": "校验平台用例详情接口模板。",
+      "tags": [
+        "platform",
+        "assets",
+        "cases",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:12.569Z",
+      "updatedAt": "2026-03-17T08:19:12.569Z"
+    },
+    {
+      "id": "case_cases_create",
+      "apiId": "api_cases_create",
+      "creator": "系统",
+      "priority": "low",
+      "name": "创建用例模板",
+      "description": "创建用例模板数据，运行后会写入新记录。",
+      "tags": [
+        "platform",
+        "assets",
+        "cases",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:13.569Z",
+      "updatedAt": "2026-03-17T08:19:13.569Z"
+    },
+    {
+      "id": "case_cases_update",
+      "apiId": "api_cases_update",
+      "creator": "系统",
+      "priority": "low",
+      "name": "更新用例模板",
+      "description": "回写平台内置用例样例数据。",
+      "tags": [
+        "platform",
+        "assets",
+        "cases",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:14.569Z",
+      "updatedAt": "2026-03-17T08:19:14.569Z"
+    },
+    {
+      "id": "case_datasets_list",
+      "apiId": "api_datasets_list",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取数据集列表",
+      "description": "校验平台数据集列表接口可访问。",
+      "tags": [
+        "platform",
+        "assets",
+        "datasets"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:19.569Z",
+      "updatedAt": "2026-03-17T08:19:19.569Z"
+    },
+    {
+      "id": "case_datasets_detail",
+      "apiId": "api_datasets_detail",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取数据集详情",
+      "description": "校验平台数据集详情接口模板。",
+      "tags": [
+        "platform",
+        "assets",
+        "datasets",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:20.569Z",
+      "updatedAt": "2026-03-17T08:19:20.569Z"
+    },
+    {
+      "id": "case_datasets_create",
+      "apiId": "api_datasets_create",
+      "creator": "系统",
+      "priority": "low",
+      "name": "创建数据集模板",
+      "description": "创建数据集模板数据，运行后会写入新记录。",
+      "tags": [
+        "platform",
+        "assets",
+        "datasets",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:21.569Z",
+      "updatedAt": "2026-03-17T08:19:21.569Z"
+    },
+    {
+      "id": "case_datasets_update",
+      "apiId": "api_datasets_update",
+      "creator": "系统",
+      "priority": "low",
+      "name": "更新数据集模板",
+      "description": "回写平台内置数据集样例数据。",
+      "tags": [
+        "platform",
+        "assets",
+        "datasets",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:22.569Z",
+      "updatedAt": "2026-03-17T08:19:22.569Z"
+    },
+    {
+      "id": "case_environments_list",
+      "apiId": "api_environments_list",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取环境列表",
+      "description": "校验平台环境列表接口可访问。",
+      "tags": [
+        "platform",
+        "assets",
+        "environments"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:27.569Z",
+      "updatedAt": "2026-03-17T08:19:27.569Z"
+    },
+    {
+      "id": "case_environments_detail",
+      "apiId": "api_environments_detail",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取环境详情",
+      "description": "校验平台环境详情接口模板。",
+      "tags": [
+        "platform",
+        "assets",
+        "environments",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:28.569Z",
+      "updatedAt": "2026-03-17T08:19:28.569Z"
+    },
+    {
+      "id": "case_environments_create",
+      "apiId": "api_environments_create",
+      "creator": "系统",
+      "priority": "low",
+      "name": "创建环境模板",
+      "description": "创建环境模板数据，运行后会写入新记录。",
+      "tags": [
+        "platform",
+        "assets",
+        "environments",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:29.569Z",
+      "updatedAt": "2026-03-17T08:19:29.569Z"
+    },
+    {
+      "id": "case_environments_update",
+      "apiId": "api_environments_update",
+      "creator": "系统",
+      "priority": "low",
+      "name": "更新环境模板",
+      "description": "回写平台内置环境样例数据。",
+      "tags": [
+        "platform",
+        "assets",
+        "environments",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:30.569Z",
+      "updatedAt": "2026-03-17T08:19:30.569Z"
+    },
+    {
+      "id": "case_suites_list",
+      "apiId": "api_suites_list",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取场景列表",
+      "description": "校验平台场景列表接口可访问。",
+      "tags": [
+        "platform",
+        "assets",
+        "suites"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:35.569Z",
+      "updatedAt": "2026-03-17T08:19:35.569Z"
+    },
+    {
+      "id": "case_suites_detail",
+      "apiId": "api_suites_detail",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取场景详情",
+      "description": "校验平台场景详情接口模板。",
+      "tags": [
+        "platform",
+        "assets",
+        "suites",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:36.569Z",
+      "updatedAt": "2026-03-17T08:19:36.569Z"
+    },
+    {
+      "id": "case_suites_create",
+      "apiId": "api_suites_create",
+      "creator": "系统",
+      "priority": "low",
+      "name": "创建场景模板",
+      "description": "创建场景模板数据，运行后会写入新记录。",
+      "tags": [
+        "platform",
+        "assets",
+        "suites",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:37.569Z",
+      "updatedAt": "2026-03-17T08:19:37.569Z"
+    },
+    {
+      "id": "case_suites_update",
+      "apiId": "api_suites_update",
+      "creator": "系统",
+      "priority": "low",
+      "name": "更新场景模板",
+      "description": "回写平台内置场景样例数据。",
+      "tags": [
+        "platform",
+        "assets",
+        "suites",
+        "template",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:19:38.569Z",
+      "updatedAt": "2026-03-17T08:19:38.569Z"
+    },
+    {
+      "id": "case_auth_logout",
+      "apiId": "api_auth_logout",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "执行账号登出",
+      "description": "校验当前登录态可正常登出。",
+      "tags": [
+        "platform",
+        "auth",
+        "session"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "jsonPath",
+          "path": "$.success",
+          "expected": true
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:31.569Z",
+      "updatedAt": "2026-03-17T08:23:31.569Z"
+    },
+    {
+      "id": "case_auth_change_password_template",
+      "apiId": "api_auth_change_password",
+      "creator": "系统",
+      "priority": "low",
+      "name": "修改密码模板",
+      "description": "使用错误旧密码验证接口校验逻辑，默认返回 400。",
+      "tags": [
+        "platform",
+        "auth",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 400
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:32.569Z",
+      "updatedAt": "2026-03-17T08:23:32.569Z"
+    },
+    {
+      "id": "case_admin_seed",
+      "apiId": "api_admin_seed",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "补充平台样例数据",
+      "description": "补充平台内置样例资产。",
+      "tags": [
+        "platform",
+        "admin",
+        "seed"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:33.569Z",
+      "updatedAt": "2026-03-17T08:23:33.569Z"
+    },
+    {
+      "id": "case_versions_list",
+      "apiId": "api_versions_list",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取版本列表",
+      "description": "校验平台版本列表接口。",
+      "tags": [
+        "platform",
+        "governance",
+        "versions"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:34.569Z",
+      "updatedAt": "2026-03-17T08:23:34.569Z"
+    },
+    {
+      "id": "case_version_impact_template",
+      "apiId": "api_version_impact",
+      "creator": "系统",
+      "priority": "low",
+      "name": "版本影响分析模板",
+      "description": "默认使用占位版本 ID，校验错误返回。",
+      "tags": [
+        "platform",
+        "governance",
+        "versions",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 400
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:35.569Z",
+      "updatedAt": "2026-03-17T08:23:35.569Z"
+    },
+    {
+      "id": "case_version_restore_template",
+      "apiId": "api_version_restore",
+      "creator": "系统",
+      "priority": "low",
+      "name": "恢复版本模板",
+      "description": "默认使用占位版本 ID，校验错误返回。",
+      "tags": [
+        "platform",
+        "governance",
+        "versions",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 400
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:36.569Z",
+      "updatedAt": "2026-03-17T08:23:36.569Z"
+    },
+    {
+      "id": "case_audit_logs",
+      "apiId": "api_audit_logs",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "读取审计日志",
+      "description": "校验审计日志列表返回数组。",
+      "tags": [
+        "platform",
+        "governance",
+        "audit"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:37.569Z",
+      "updatedAt": "2026-03-17T08:23:37.569Z"
+    },
+    {
+      "id": "case_audit_logs_export",
+      "apiId": "api_audit_logs_export",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "导出审计日志",
+      "description": "校验审计日志导出内容。",
+      "tags": [
+        "platform",
+        "governance",
+        "audit"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "bodyContains",
+          "expected": "Time,Actor"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:38.569Z",
+      "updatedAt": "2026-03-17T08:23:38.569Z"
+    },
+    {
+      "id": "case_scheduler_refresh",
+      "apiId": "api_scheduler_refresh",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "刷新调度中心",
+      "description": "校验调度刷新接口返回结构。",
+      "tags": [
+        "platform",
+        "scheduler"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 200
+        },
+        {
+          "type": "fieldType",
+          "path": "$.summary",
+          "expected": "object"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:39.569Z",
+      "updatedAt": "2026-03-17T08:23:39.569Z"
+    },
+    {
+      "id": "case_runs_trigger",
+      "apiId": "api_runs_trigger",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "触发平台场景执行",
+      "description": "触发平台内置冒烟场景执行。",
+      "tags": [
+        "platform",
+        "execution",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:40.569Z",
+      "updatedAt": "2026-03-17T08:23:40.569Z"
+    },
+    {
+      "id": "case_runs_batch_cases",
+      "apiId": "api_runs_batch_cases",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "批量执行平台用例",
+      "description": "批量执行平台内置登录与登录态用例。",
+      "tags": [
+        "platform",
+        "execution",
+        "write"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:41.569Z",
+      "updatedAt": "2026-03-17T08:23:41.569Z"
+    },
+    {
+      "id": "case_run_detail_template",
+      "apiId": "api_run_detail",
+      "creator": "系统",
+      "priority": "low",
+      "name": "读取执行详情模板",
+      "description": "默认使用占位执行 ID，校验 404。",
+      "tags": [
+        "platform",
+        "execution",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 404
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:42.569Z",
+      "updatedAt": "2026-03-17T08:23:42.569Z"
+    },
+    {
+      "id": "case_run_share_template",
+      "apiId": "api_run_share",
+      "creator": "系统",
+      "priority": "low",
+      "name": "读取执行分享模板",
+      "description": "默认使用占位执行 ID，校验 404。",
+      "tags": [
+        "platform",
+        "execution",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 404
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:43.569Z",
+      "updatedAt": "2026-03-17T08:23:43.569Z"
+    },
+    {
+      "id": "case_run_cancel_template",
+      "apiId": "api_run_cancel",
+      "creator": "系统",
+      "priority": "low",
+      "name": "取消执行模板",
+      "description": "默认使用占位执行 ID，校验 404。",
+      "tags": [
+        "platform",
+        "execution",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 404
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:44.569Z",
+      "updatedAt": "2026-03-17T08:23:44.569Z"
+    },
+    {
+      "id": "case_run_retry_template",
+      "apiId": "api_run_retry",
+      "creator": "系统",
+      "priority": "low",
+      "name": "重试执行模板",
+      "description": "默认使用占位执行 ID，校验 404。",
+      "tags": [
+        "platform",
+        "execution",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 404
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:45.569Z",
+      "updatedAt": "2026-03-17T08:23:45.569Z"
+    },
+    {
+      "id": "case_run_retry_failed_template",
+      "apiId": "api_run_retry_failed",
+      "creator": "系统",
+      "priority": "low",
+      "name": "重跑失败步骤模板",
+      "description": "默认使用占位执行 ID，校验 404。",
+      "tags": [
+        "platform",
+        "execution",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 404
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:46.569Z",
+      "updatedAt": "2026-03-17T08:23:46.569Z"
+    },
+    {
+      "id": "case_ci_trigger",
+      "apiId": "api_ci_trigger",
+      "creator": "系统",
+      "priority": "medium",
+      "name": "通过 CI 触发执行",
+      "description": "使用平台内置 CI Token 触发场景执行。",
+      "tags": [
+        "platform",
+        "ci"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        },
+        {
+          "type": "fieldType",
+          "path": "$.id",
+          "expected": "string"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:47.569Z",
+      "updatedAt": "2026-03-17T08:23:47.569Z"
+    },
+    {
+      "id": "case_import_openapi",
+      "apiId": "api_import_openapi",
+      "creator": "系统",
+      "priority": "low",
+      "name": "导入 OpenAPI 模板",
+      "description": "导入最小 OpenAPI 模板以验证导入链路。",
+      "tags": [
+        "platform",
+        "assets",
+        "openapi",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 201
+        },
+        {
+          "type": "fieldType",
+          "path": "$.apis",
+          "expected": "array"
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:48.569Z",
+      "updatedAt": "2026-03-17T08:23:48.569Z"
+    },
+    {
+      "id": "case_user_revoke_sessions_template",
+      "apiId": "api_user_revoke_sessions",
+      "creator": "系统",
+      "priority": "low",
+      "name": "回收用户会话模板",
+      "description": "默认使用占位用户 ID，校验 400。",
+      "tags": [
+        "platform",
+        "users",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 400
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:49.569Z",
+      "updatedAt": "2026-03-17T08:23:49.569Z"
+    },
+    {
+      "id": "case_user_reset_password_template",
+      "apiId": "api_user_reset_password",
+      "creator": "系统",
+      "priority": "low",
+      "name": "重置用户密码模板",
+      "description": "默认使用占位用户 ID，校验 400。",
+      "tags": [
+        "platform",
+        "users",
+        "template"
+      ],
+      "assertions": [
+        {
+          "type": "status",
+          "expected": 400
+        }
+      ],
+      "extracts": [],
+      "preScript": "",
+      "postScript": "",
+      "overrides": {},
+      "createdAt": "2026-03-17T08:23:50.569Z",
+      "updatedAt": "2026-03-17T08:23:50.569Z"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "dataset_platform_seed",
+      "name": "平台内置样例数据集",
+      "description": "用于平台自身接口模板测试。",
+      "scope": "suite",
+      "tags": [
+        "platform",
+        "template"
+      ],
+      "rows": [
+        {
+          "id": "row_1",
+          "name": "默认数据行",
+          "variables": {
+            "sample": "value"
+          }
+        }
+      ],
+      "creator": "系统",
+      "createdAt": "2026-03-17T08:13:51.069Z",
+      "updatedAt": "2026-03-17T08:13:51.069Z"
+    }
+  ],
+  "environments": [
+    {
+      "id": "env_platform_self",
+      "name": "平台本地环境",
+      "description": "指向当前自动化测试平台后端服务。",
+      "baseUrl": "http://localhost:3000",
+      "headers": {},
+      "variables": {
+        "platformBaseUrl": "http://localhost:3000",
+        "platformUserId": "user_admin",
+        "platformProjectId": "project_platform",
+        "platformServiceId": "service_backend",
+        "platformModuleId": "module_core_api",
+        "platformAssetsModuleId": "module_assets_api",
+        "platformRuntimeModuleId": "module_runtime_api",
+        "platformApiId": "api_auth_login",
+        "platformCaseId": "case_auth_login",
+        "platformDatasetId": "dataset_platform_seed",
+        "platformEnvironmentId": "env_platform_self",
+        "platformSuiteId": "suite_platform_core_smoke",
+        "platformRunId": "run_placeholder",
+        "platformVersionId": "version_placeholder",
+        "platformTemplateUserId": "user_template_placeholder"
+      },
+      "auth": {
+        "type": "apikey",
+        "header": "x-session-token",
+        "value": "token_admin_flowforge"
+      },
+      "creator": "系统",
+      "createdAt": "2026-03-17T08:13:51.569Z",
+      "updatedAt": "2026-03-17T08:13:51.569Z"
+    }
+  ],
+  "suites": [
+    {
+      "id": "suite_platform_core_smoke",
+      "projectId": "project_platform",
+      "name": "平台核心接口冒烟",
+      "description": "串联登录、身份校验、引导、总览、变量、调度与报告接口。",
+      "creator": "系统",
+      "tags": [
+        "platform",
+        "smoke",
+        "core"
+      ],
+      "variables": {},
+      "items": [
+        {
+          "id": "suite_item_login",
+          "caseId": "case_auth_login",
+          "order": 1,
+          "continueOnFailure": false
+        },
+        {
+          "id": "suite_item_auth_me",
+          "caseId": "case_auth_me",
+          "order": 2,
+          "continueOnFailure": false
+        },
+        {
+          "id": "suite_item_bootstrap",
+          "caseId": "case_bootstrap",
+          "order": 3,
+          "continueOnFailure": false
+        },
+        {
+          "id": "suite_item_overview",
+          "caseId": "case_overview",
+          "order": 4,
+          "continueOnFailure": false
+        },
+        {
+          "id": "suite_item_globals",
+          "caseId": "case_globals",
+          "order": 5,
+          "continueOnFailure": false
+        },
+        {
+          "id": "suite_item_scheduler",
+          "caseId": "case_scheduler_center",
+          "order": 6,
+          "continueOnFailure": false
+        },
+        {
+          "id": "suite_item_report_summary",
+          "caseId": "case_report_summary",
+          "order": 7,
+          "continueOnFailure": false
+        }
+      ],
+      "scenarioAssertions": [
+        {
+          "type": "status",
+          "expected": "passed"
+        }
+      ],
+      "schedule": {
+        "enabled": false,
+        "intervalMinutes": 30
+      },
+      "defaultEnvironmentId": "env_platform_self",
+      "timeoutSeconds": 120,
+      "failureStrategy": "stop",
+      "continueOnFailure": false,
+      "executionConfig": {
+        "priority": "normal",
+        "maxRetries": 0,
+        "stopOnDatasetFailure": true
+      },
+      "createdAt": "2026-03-17T08:13:52.569Z",
+      "updatedAt": "2026-03-17T08:13:52.569Z"
+    },
+    {
+      "id": "suite_platform_report_governance",
+      "projectId": "project_platform",
+      "name": "平台报告与治理巡检",
+      "description": "串联报告洞察、执行记录和治理概览等后台能力。",
+      "creator": "系统",
+      "tags": [
+        "platform",
+        "reports",
+        "governance"
+      ],
+      "variables": {},
+      "items": [
+        {
+          "id": "suite_item_bootstrap_b",
+          "caseId": "case_bootstrap",
+          "order": 1,
+          "continueOnFailure": false
+        },
+        {
+          "id": "suite_item_report_insights",
+          "caseId": "case_report_insights",
+          "order": 2,
+          "continueOnFailure": false
+        },
+        {
+          "id": "suite_item_runs",
+          "caseId": "case_runs_list",
+          "order": 3,
+          "continueOnFailure": false
+        },
+        {
+          "id": "suite_item_governance",
+          "caseId": "case_governance_summary",
+          "order": 4,
+          "continueOnFailure": false
+        }
+      ],
+      "scenarioAssertions": [
+        {
+          "type": "status",
+          "expected": "passed"
+        }
+      ],
+      "schedule": {
+        "enabled": false,
+        "intervalMinutes": 30
+      },
+      "defaultEnvironmentId": "env_platform_self",
+      "timeoutSeconds": 120,
+      "failureStrategy": "stop",
+      "continueOnFailure": false,
+      "executionConfig": {
+        "priority": "normal",
+        "maxRetries": 0,
+        "stopOnDatasetFailure": true
+      },
+      "createdAt": "2026-03-17T08:13:53.569Z",
+      "updatedAt": "2026-03-17T08:13:53.569Z"
+    }
+  ],
+  "versions": [],
+  "auditLogs": [],
+  "runs": []
+}
