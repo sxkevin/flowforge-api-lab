@@ -1,5 +1,4 @@
 # FlowForge API Lab
-![Uploading 09055bb59bf0eb7f1cd22660a5417759.jpg…]()
 
 一个面向接口自动化测试场景的可运行 MVP，提供从接口资产管理、用例编排、环境配置，到执行调度、报告追踪、OpenAPI 导入的完整闭环。
 
